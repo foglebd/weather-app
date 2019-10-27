@@ -1,6 +1,6 @@
 var city = "Moscow,Russia"
-var APIKey = "0784d07688511b276c71076385817e27";
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+var apiKey = "0784d07688511b276c71076385817e27";
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
 
 $.ajax({
     url: queryURL,
@@ -8,8 +8,8 @@ $.ajax({
 }).then(function(response){
     
     console.log(queryURL);
-
     console.log(response);
+
     var city = response.name
     var wind = response.wind.speed
     var humidity = response.main.humidity
@@ -20,6 +20,9 @@ $.ajax({
     $('.wind').text('Wind: ' + wind)
     $('.humidity').text('Humidity: ' + humidity)
     $('.temp').text('Temperature (in Kelvin): ' + temp)
+
+    });
+
 $(document).ready(function(){
 
     $('#searchButton').click(function(){
